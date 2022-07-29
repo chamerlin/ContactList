@@ -18,6 +18,7 @@ import com.example.contactlist.ui.ContactAdapter
 
 class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
+    lateinit var contactAdapter: ContactAdapter
     val viewModel: HomeViewModel by viewModels {
         HomeViewModel.Provider(ContactRepository.contactRepository)
     }
@@ -27,18 +28,21 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+        binding.lifecycleOwner = this
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        onBindView()
+        binding.viewModel = viewModel
+        setupAdapter()
         setupFragmentListener()
+        onBindView()
     }
 
     fun onBindView() {
         viewModel.contacts.observe(viewLifecycleOwner) { contacts ->
-            setupAdapter(contacts)
+            contactAdapter.setModels(contacts)
         }
 
         binding.fabAdd.setOnClickListener {
@@ -46,11 +50,15 @@ class HomeFragment : Fragment() {
         }
     }
 
-    fun setupAdapter(contacts: List<Contact>) {
-        val contactAdapter = ContactAdapter(contacts)
+    fun setupAdapter() {
+        contactAdapter = ContactAdapter(emptyList())
         contactAdapter.listener = object: ContactAdapter.Listener {
             override fun onItemClicked(item: Contact) {
                 navigateToEditContact(item.id!!)
+            }
+
+            override fun onDeleteClicked(item: Contact) {
+                viewModel.onDeleteClicked(item.id!!)
             }
         }
         val layoutManager = LinearLayoutManager(requireContext())
