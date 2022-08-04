@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.contactlist.R
 import com.example.contactlist.databinding.FragmentAddEditContactBinding
+import dagger.hilt.android.AndroidEntryPoint
+
 
 abstract class BaseContactFragment : Fragment() {
     protected lateinit var binding: FragmentAddEditContactBinding

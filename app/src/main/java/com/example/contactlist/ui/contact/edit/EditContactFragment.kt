@@ -8,21 +8,19 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.asLiveData
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.navArgs
-import com.example.contactlist.data.model.Contact
-import com.example.contactlist.data.repository.ContactRepository
 import com.example.contactlist.ui.contact.base.BaseContactFragment
+import com.example.contactlist.ui.contact.edit.viewModel.EditContactViewModelImpl
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class EditContactFragment : BaseContactFragment() {
-    private val viewModel: EditContactViewModel by viewModels {
-        EditContactViewModel.Provider(ContactRepository.contactRepository)
-    }
-
+    private val viewModel: EditContactViewModelImpl by viewModels()
     val args: EditContactFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
         viewModel.onViewCreated(args.id)
         onBindView()
     }
