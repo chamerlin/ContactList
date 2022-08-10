@@ -1,7 +1,6 @@
 package com.example.contactlist.ui.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,14 +12,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.contactlist.data.model.Contact
 import com.example.contactlist.databinding.FragmentHomeBinding
 import com.example.contactlist.ui.ContactAdapter
+import com.example.contactlist.ui.base.BaseFragment
+import com.example.contactlist.ui.core.ErrorHandler
+import com.example.contactlist.ui.core.ErrorHandlerImpl
 import com.example.contactlist.ui.home.viewModel.HomeViewModelImpl
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment(), ErrorHandler by ErrorHandlerImpl() {
     lateinit var binding: FragmentHomeBinding
     lateinit var contactAdapter: ContactAdapter
-    val viewModel: HomeViewModelImpl by viewModels()
+    override val viewModel: HomeViewModelImpl by viewModels()
 
 
     override fun onCreateView(
@@ -28,16 +30,18 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
-        binding.lifecycleOwner = viewLifecycleOwner
+        binding.lifecycleOwner = this
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
+
         setupAdapter()
         setupFragmentListener()
         onBindView()
+        setupErrorHandler(view, viewModel, viewLifecycleOwner)
     }
 
     fun onBindView() {
