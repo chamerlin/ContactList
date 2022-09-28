@@ -19,7 +19,7 @@ import com.example.contactlist.ui.home.viewModel.HomeViewModelImpl
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : BaseFragment(), ErrorHandler by ErrorHandlerImpl() {
+class HomeFragment : BaseFragment() {
     lateinit var binding: FragmentHomeBinding
     lateinit var contactAdapter: ContactAdapter
     override val viewModel: HomeViewModelImpl by viewModels()
@@ -30,7 +30,7 @@ class HomeFragment : BaseFragment(), ErrorHandler by ErrorHandlerImpl() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }
 
@@ -41,7 +41,6 @@ class HomeFragment : BaseFragment(), ErrorHandler by ErrorHandlerImpl() {
         setupAdapter()
         setupFragmentListener()
         onBindView()
-        setupErrorHandler(view, viewModel, viewLifecycleOwner)
     }
 
     fun onBindView() {

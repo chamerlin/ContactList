@@ -17,7 +17,7 @@ class ErrorHandlerImpl : ErrorHandler {
             snackbar.setBackgroundTint(
                 ContextCompat.getColor(view.context, R.color.red)
             )
+            snackbar.show()
         }
-        Log.d("ERROR", "something went wrong")
     }
 }

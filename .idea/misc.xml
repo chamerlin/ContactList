@@ -3,18 +3,29 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Sem 4/6th Week/ContactList/app/src/main/res/drawable-v24/ic_icon_test.xml" value="0.229" />
+        <entry key="..\:/Sem 4/6th Week/ContactList/app/src/main/res/drawable-v24/ic_progress.xml" value="0.1135" />
         <entry key="..\:/Sem 4/6th Week/ContactList/app/src/main/res/drawable/bg_tv.xml" value="0.2025" />
         <entry key="..\:/Sem 4/6th Week/ContactList/app/src/main/res/drawable/ic_add.xml" value="0.2215" />
         <entry key="..\:/Sem 4/6th Week/ContactList/app/src/main/res/drawable/ic_contact.xml" value="0.208" />
+        <entry key="..\:/Sem 4/6th Week/ContactList/app/src/main/res/drawable/ic_contact_page.xml" value="0.229" />
+        <entry key="..\:/Sem 4/6th Week/ContactList/app/src/main/res/drawable/ic_delete.xml" value="0.229" />
+        <entry key="..\:/Sem 4/6th Week/ContactList/app/src/main/res/drawable/ic_loader.xml" value="0.229" />
         <entry key="..\:/Sem 4/6th Week/ContactList/app/src/main/res/drawable/outline_edit_text.xml" value="0.1" />
         <entry key="..\:/Sem 4/6th Week/ContactList/app/src/main/res/layout/activity_main.xml" value="0.20104166666666667" />
         <entry key="..\:/Sem 4/6th Week/ContactList/app/src/main/res/layout/fragment_add_contact.xml" value="0.1" />
-        <entry key="..\:/Sem 4/6th Week/ContactList/app/src/main/res/layout/fragment_add_edit_contact.xml" value="0.21822916666666667" />
+        <entry key="..\:/Sem 4/6th Week/ContactList/app/src/main/res/layout/fragment_add_edit_contact.xml" value="0.25" />
+        <entry key="..\:/Sem 4/6th Week/ContactList/app/src/main/res/layout/fragment_base.xml" value="0.21822916666666667" />
         <entry key="..\:/Sem 4/6th Week/ContactList/app/src/main/res/layout/fragment_base_contact.xml" value="0.21822916666666667" />
         <entry key="..\:/Sem 4/6th Week/ContactList/app/src/main/res/layout/fragment_edit_contact.xml" value="0.20104166666666667" />
         <entry key="..\:/Sem 4/6th Week/ContactList/app/src/main/res/layout/fragment_home.xml" value="0.21822916666666667" />
-        <entry key="..\:/Sem 4/6th Week/ContactList/app/src/main/res/layout/item_layout_contact.xml" value="0.25" />
+        <entry key="..\:/Sem 4/6th Week/ContactList/app/src/main/res/layout/fullscreen_loader.xml" value="0.21822916666666667" />
+        <entry key="..\:/Sem 4/6th Week/ContactList/app/src/main/res/layout/ic_loader.xml" value="0.10544904137235116" />
+        <entry key="..\:/Sem 4/6th Week/ContactList/app/src/main/res/layout/item_layout_contact.xml" value="0.1" />
         <entry key="..\:/Sem 4/6th Week/ContactList/app/src/main/res/layout/item_layout_title.xml" value="0.2171875" />
+        <entry key="..\:/Sem 4/Assignment/ContactList/app/src/main/res/layout/fragment_add_edit_contact.xml" value="0.21822916666666667" />
+        <entry key="..\:/Sem 4/Assignment/ContactList/app/src/main/res/layout/fragment_home.xml" value="0.21822916666666667" />
+        <entry key="..\:/Sem 4/Assignment/ContactList/app/src/main/res/layout/fragment_sign_up.xml" value="0.1" />
       </map>
     </option>
   </component>

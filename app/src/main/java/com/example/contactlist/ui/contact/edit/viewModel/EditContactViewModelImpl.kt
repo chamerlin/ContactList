@@ -20,16 +20,19 @@ class EditContactViewModelImpl @Inject constructor(private val repository: Conta
         }
     }
 
-    override fun update(id: Int){
+    override fun update(id: Int): Boolean {
+        var isUpdated = false
         viewModelScope.launch {
             if(name.value.isNullOrEmpty() || phone.value.isNullOrEmpty()){
                 _error.emit("Something went wrong")
+                isUpdated = false
             } else {
                 val contact = Contact(id = id, name = name.value!!, phone = phone.value!!)
                 repository.updateContact(id, contact)
                 _finish.emit(Unit)
+                isUpdated = true
             }
         }
-
+        return isUpdated
     }
 }

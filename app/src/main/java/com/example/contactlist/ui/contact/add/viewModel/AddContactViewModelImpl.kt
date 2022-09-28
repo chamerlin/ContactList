@@ -9,17 +9,23 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AddContactViewModelImpl @Inject constructor(private val repository: ContactRepository): AddContactViewModel, BaseContactViewModel() {
+class AddContactViewModelImpl @Inject constructor(val repository: ContactRepository): AddContactViewModel, BaseContactViewModel() {
 
-    override fun save() {
+    override fun save(): Boolean {
+        var isSaved = false
         viewModelScope.launch {
             if(name.value.isNullOrEmpty() || phone.value.isNullOrEmpty()) {
                 _error.emit("Please enter both name and phone properly")
+                isSaved = false
             } else {
                 val contact = Contact(name = name.value!!, phone = phone.value!!)
+                _loading.emit(true)
                 repository.addContact(contact)
+                _loading.emit(false)
                 _finish.emit(Unit)
+                isSaved = true
             }
         }
+        return isSaved
     }
 }
